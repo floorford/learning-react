@@ -1,7 +1,7 @@
 import React from "react";
 
-const Header = () => (
-  <h1>Hello World!</h1>
+const Header = ({ children }) => (
+  <h1>{ children }</h1>
 )
 
 
