@@ -11,7 +11,7 @@ const People = ({ names }) => (
 );
 
 People.defaultProps = {
-    names: ["Nothing to see here..."]
+    names: ["Nothing to see here...", "...Move it along"]
 };
 
 
