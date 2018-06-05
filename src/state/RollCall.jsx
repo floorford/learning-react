@@ -20,10 +20,10 @@ class RollCall extends Component {
     let { names } =  this.props;
 
     this.setState({
-      counter: this.state.counter >= names.length - 1 ? this.state.counter = 0 : this.state.counter = this.state.counter + 1,
+      counter: this.state.counter >= names.length - 1 ? 0 : this.state.counter + 1,
       list: names[this.state.counter]
     })
-  } //counter is wrong, but works!
+  }
 
   render() {
     const { list } = this.state;

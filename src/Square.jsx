@@ -1,3 +1,5 @@
+// Update your <Square colour="hotpink"> component so that the border starts black, but when it is clicked it changes to the passed in colour. It should alternate every time you click.
+
 import React, { Component } from "react";
 
 class Square extends Component {
@@ -5,7 +7,7 @@ class Square extends Component {
     super(props);
 
     this.state = {
-      counter: 0
+      counter: true
     };
 
     this.clicked = this.clicked.bind(this);
@@ -13,14 +15,14 @@ class Square extends Component {
 
   clicked() {
     this.setState({
-      counter: this.state.counter + 1
+      counter: !this.state.counter
     });
   }
 
   render () {
     const { counter } = this.state;
-    let colour;
-    counter % 2 === 0 ? colour = "black" : colour = "hotpink";
+    const { colour } = this.props;
+    const bordercolour = counter ? "black" : colour;
 
     return (
       <div onClick={ this.clicked }
@@ -28,7 +30,7 @@ class Square extends Component {
           height: 200,
           width: 200,
           backgroundColor: "pink",
-          border: `4px solid ${colour}`
+          border: `4px solid ${bordercolour}`
         }}
       />
     );
@@ -36,5 +38,3 @@ class Square extends Component {
 }
 
 export default Square;
-
-// Update your <Square colour="hotpink"> component so that the border starts black, but when it is clicked it changes to the passed in colour. It should alternate every time you click.
