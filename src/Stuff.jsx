@@ -11,10 +11,23 @@ import StepCounter from './state/StepCounter';
 import CatchMeIfYouCan from './state/CatchMeIfYouCan';
 import RollCall from './state/RollCall';
 import LameGame from './state/UNFINLameGame';
+import Length from './forms/Length'
+import List from './forms/List'
+import Adder from './forms/Adder'
+import Transform from './forms/Transform'
+import TempConverter from './forms/TempConverter'
 
 const Stuff = ({ square }) => (
   <React.Fragment>
     <Header>Hello, world!</Header>
+    <Length name="lengthchecker" label="Length Checker"/>
+    <List name="lister" />
+    <br/>
+    <Adder name="adder" label="Adder"/>
+    <Transform transform={ fn } />
+    <br/>
+    <TempConverter toFar= { fahrenheit } toCen= { centigrade }/>
+    <br/>
     <Clicked />
     <ToggleText initial="Hello" alternate="World" />
     <Counter initial={ 50 } max={ 100 } />
@@ -24,7 +37,7 @@ const Stuff = ({ square }) => (
     <RollCall names={ names } />
     <br/><br/>
     <LameGame aim={ 100 }/>
-    <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quamquam tu hanc copiosiorem etiam soles dicere. Ubi ut eam caperet aut quando? Videmus igitur ut conquiescere ne infantes quidem possint. Magna laus. Bonum patria: miserum exilium. Sed tu istuc dixti bene Latine, parum plane. Duo Reges: constructio interrete. Ergo hoc quidem apparet, nos ad agendum esse natos.</Paragraph>
+    <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quamquam tu hanc copiosiorem etiam soles dicere. Ubi ut eam caperet aut quando?</Paragraph>
     { square ? <Square colour="hotpink"/> : null }
     <People names={ ["Jerry", "Bob", "Tony", "Selma"] }/>
     <Basket items={ items }/>
@@ -34,6 +47,12 @@ const Stuff = ({ square }) => (
 Stuff.defaultProps = {
   square: true
 }
+
+let fn = x => x * x;
+
+let fahrenheit = celsius => (celsius - 32) * 5/9;
+let centigrade = fahrenheit => (fahrenheit * 9/5) + 32;
+
 
 let names= ["Jerry", "Bob", "Tony", "Selma", "Tyrone", "Mr PING PONG"];
 

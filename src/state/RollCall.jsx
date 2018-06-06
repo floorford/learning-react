@@ -6,11 +6,8 @@ class RollCall extends Component {
   constructor(props) {
     super(props)
 
-    let { names } =  this.props;
-
     this.state = {
       counter: 0,
-      list: names[0]
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -18,19 +15,20 @@ class RollCall extends Component {
 
   handleClick() {
     let { names } =  this.props;
+    const { counter } = this.state
 
     this.setState({
-      counter: this.state.counter >= names.length - 1 ? 0 : this.state.counter + 1,
-      list: names[this.state.counter]
+      counter: (counter + 1) % names.length // use ternary if descending
     })
   }
 
   render() {
-    const { list } = this.state;
+    const { names } = this.props;
+    const { counter } = this.state;
 
     return (
       <React.Fragment>
-        <p>{ list }</p>
+        <p>{ names[counter] }</p>
         <button onClick={ this.handleClick }>Next!</button>
       </React.Fragment>
     );

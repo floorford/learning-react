@@ -43,7 +43,8 @@ class LameGame extends Component {
   }
 
   timingClick() {
-    this.stopTimer();
+    this.stopTimer(this.startTimer);
+    
   }
 
   render() {

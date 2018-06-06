@@ -27,7 +27,7 @@ class CatchMeIfYouCan extends Component {
       <button onClick={ this.handleClick }
         style={{
           position: "absolute",
-          left: 250,
+          left: 350,
           top: position
         }}
       >Jumpy Woo!</button>
