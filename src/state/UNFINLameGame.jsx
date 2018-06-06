@@ -2,68 +2,48 @@
 
 import React, { Component } from "react";
 
+
 class LameGame extends Component {
   constructor(props) {
     super(props)
 
-    const { aim } = this.props;
-
     this.state = {
       disp: "none",
       timedisp: "none",
-      c: 0,
-      time: 0,
       timecount: 0,
-      answer: "none"
+      answer: "none",
     }
 
     this.handleClick = this.handleClick.bind(this);
     this.timingClick = this.timingClick.bind(this);
   }
 
+  startTimer(counter) {
+
+    setInterval(function(){
+      counter = counter - 1;
+       console.log(counter);
+    }, 100);
+  }
+
+  stopTimer(){
+    console.log("Potato")
+    clearInterval(this.startTimer);
+  }
+
   handleClick() {
-    const { aim } = this.props;
-
-    function timedCount() {
-      this.setState({
-        disp: "block",
-        timedisp: "none",
-        c: this.state.c + 1,
-        time: setTimeout("timedCount()", aim),
-        timecount: 0,
-        answer: "none"
-      })
-    }
-
-    function startTimer() {
-      if (!this.state.timecount) {
-        this.setState({
-          disp: "block",
-          timedisp: "none",
-          c: this.state.c + 1,
-          time: setTimeout("timedCount()", aim),
-          timecount: 1,
-          answer: "none"
-        })
-        timedCount();
-      }
-    }
+    let counter = this.props.aim;
+    this.startTimer(counter);
+    this.setState({
+      disp: "block",
+      timedisp: "none",
+      timecount: counter,
+      answer: "none"
+    })
   }
 
   timingClick() {
-    const { aim } = this.props;
-
-    function endCount() {
-      clearTimeout(this.state.time);
-      this.setState({
-        disp: "block",
-        timedisp: "none",
-        c: this.state.c + 1,
-        time: setTimeout("timedCount()", aim),
-        timecount: 0,
-        answer: "none"
-      })
-    }
+    this.stopTimer();
   }
 
   render() {

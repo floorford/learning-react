@@ -7,7 +7,7 @@ class ToggleText extends Component {
     super(props)
 
     this.state = {
-      counter: 0
+      counter: true
     }
 
     this.handleClick = this.handleClick.bind(this);
@@ -15,7 +15,7 @@ class ToggleText extends Component {
 
   handleClick() {
     this.setState({
-      counter: this.state.counter + 1
+      counter: !this.state.counter
     });
   }
 
@@ -25,7 +25,7 @@ class ToggleText extends Component {
 
     return (
       <React.Fragment>
-        <p>{ counter % 2 === 0 ? initial : alternate }</p>
+        <p>{ counter ? initial : alternate }</p>
         <button onClick={ this.handleClick }>
           Toggle
         </button>

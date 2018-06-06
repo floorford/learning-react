@@ -23,7 +23,7 @@ const Stuff = ({ square }) => (
     <CatchMeIfYouCan jump={ 100 } />
     <RollCall names={ names } />
     <br/><br/>
-    <LameGame aim={ 10000 }/>
+    <LameGame aim={ 100 }/>
     <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quamquam tu hanc copiosiorem etiam soles dicere. Ubi ut eam caperet aut quando? Videmus igitur ut conquiescere ne infantes quidem possint. Magna laus. Bonum patria: miserum exilium. Sed tu istuc dixti bene Latine, parum plane. Duo Reges: constructio interrete. Ergo hoc quidem apparet, nos ad agendum esse natos.</Paragraph>
     { square ? <Square colour="hotpink"/> : null }
     <People names={ ["Jerry", "Bob", "Tony", "Selma"] }/>
