@@ -1,7 +1,7 @@
 import React from "react";
 import Header from './Header';
 import Paragraph from './Paragraph';
-import Square from './Square';
+// import Square from './Square';
 import People from './People';
 import Basket from './Basket';
 import Clicked from './state/Clicked';
@@ -11,15 +11,25 @@ import StepCounter from './state/StepCounter';
 import CatchMeIfYouCan from './state/CatchMeIfYouCan';
 import RollCall from './state/RollCall';
 import LameGame from './state/UNFINLameGame';
-import Length from './forms/Length'
-import List from './forms/List'
-import Adder from './forms/Adder'
-import Transform from './forms/Transform'
-import TempConverter from './forms/TempConverter'
+import Length from './forms/Length';
+import List from './forms/List';
+import Adder from './forms/Adder';
+import Transform from './forms/Transform';
+import TempConverter from './forms/TempConverter';
+import Buttons from './lifting-state/Buttons';
+import Squares from './lifting-state/Squares';
+import SignUp from './lifting-state/SignUp';
 
 const Stuff = ({ square }) => (
   <React.Fragment>
     <Header>Hello, world!</Header>
+    <Buttons />
+    <br/>
+    <br/>
+    <Squares />
+    <br/>
+    <SignUp minimumLength={ 12 } />
+    <br/>
     <Length name="lengthchecker" label="Length Checker"/>
     <List name="lister" />
     <br/>
@@ -38,7 +48,7 @@ const Stuff = ({ square }) => (
     <br/><br/>
     <LameGame aim={ 100 }/>
     <Paragraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quamquam tu hanc copiosiorem etiam soles dicere. Ubi ut eam caperet aut quando?</Paragraph>
-    { square ? <Square colour="hotpink"/> : null }
+    {/* { square ? <Square colour="hotpink"/> : null } */}
     <People names={ ["Jerry", "Bob", "Tony", "Selma"] }/>
     <Basket items={ items }/>
   </React.Fragment>
