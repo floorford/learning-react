@@ -29,10 +29,9 @@ import Squares from './lifting-state/Squares';
 import SignUp from './lifting-state/SignUp';
 import Form from './lifting-state/Form';
 import FourOhFour from './FourOhFour';
-// import Max from './lifting-state/Max';
+import Max from './lifting-state/Max';
 // import Appify from './appify/Parent';
 // {/* { square ? <Square colour="hotpink"/> : null } */}
-// {/* <Max count={ numbers }/> */}
 // {/* <Counter initial={ 50 } max={ 100 } /> */}
 
 // ------------------ Main App --------------------
@@ -90,6 +89,8 @@ const App = () => (
             <br/>
             <TempConverter toFar= { fahrenheit } toCen= { centigrade }/>
             <br/>
+            <Max count={ numbers } max={ 20 }/>
+            <br/>
           </React.Fragment>
         )}/>
 
@@ -129,7 +130,7 @@ let centigrade = fahrenheit => (fahrenheit * 9/5) + 32;
 
 let fields = ["First Name", "Last Name", "Email"]
 
-// let numbers = [1, 2, 3]
+let numbers = [1, 2, 3]
 
 let names= ["Jerry", "Bob", "Tony", "Selma", "Tyrone", "Mr PING PONG"];
 

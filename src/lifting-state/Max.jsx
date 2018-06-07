@@ -23,6 +23,7 @@ class Max extends Component {
           <Counter
             key={ i }
             label={ label }
+            max={ this.props.max }
 
             // onChange={ e => this.handleChange(e, i) }
           />

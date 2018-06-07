@@ -10,7 +10,7 @@ class Form extends Component {
     super(props)
 
     this.state = {
-      fields: props.fields.map(a => ({
+      fields: props.fields.map( a => ({
         label: a,
         value: "",
         colour: "black",
@@ -54,9 +54,10 @@ class Form extends Component {
 
   render() {
     let fields = this.state.fields.slice();
-    console.log(fields);
-    let errorMessage = "bad"
-    //fields.filter(x => x.value < 1); need to access index of the one which doesnt have a value and show the label
+
+    let errorMessage = fields.reduce((acc, val) =>
+      val.value.length < 1 ? acc + val.label + ", " : acc, "Please fill in the following: "
+    );
 
     return (
       <form className="form-group">

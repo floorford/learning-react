@@ -6,11 +6,21 @@ import React from "react";
 
 const Input = ({ label, value, onChange, colour, haveTyped, isValid }) => {
 
+  if (haveTyped && value < 1) {
+    colour = "red"
+  } else if (!isValid && value > 0) {
+    colour = "black"
+  } else if (!isValid && !haveTyped) {
+    colour = "red"
+  } else if (haveTyped && value > 0) {
+    colour = "black"
+  }
+
   return (
     <React.Fragment>
       <label>{ label }:</label>
       <input
-        style={{ border: `2px solid ${ haveTyped && value < 1 || !isValid ? colour = "red" : colour = "black" }` }} className="form-control" value={ value } onChange={ onChange }></input>
+        style={{ border: `2px solid ${ colour }` }} className="form-control" value={ value } onChange={ onChange }></input>
     </React.Fragment>
   )
 };
