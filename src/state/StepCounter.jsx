@@ -18,7 +18,7 @@ class StepCounter extends Component {
     let { step } = this.props;
 
     this.setState({
-      counter: this.state.counter + step
+      counter: this.state.counter + +step
     });
   }
 
@@ -26,7 +26,7 @@ class StepCounter extends Component {
     let { step } = this.props;
 
     this.setState({
-      counter: this.state.counter - step
+      counter: this.state.counter - +step
     });
   }
 
@@ -36,7 +36,7 @@ class StepCounter extends Component {
 
     return (
       <React.Fragment>
-        <p>{ counter >= max ? max : counter && counter <= 0 ? 0: counter }</p>
+        <p>{ counter >= +max ? +max : counter && counter <= 0 ? 0: counter }</p>
         <button onClick={ this.handleAdd }>+</button>
         <button onClick={ this.handleSub }>-</button>
       </React.Fragment>

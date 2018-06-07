@@ -6,7 +6,7 @@ import People from './People';
 import Basket from './Basket';
 import Clicked from './state/Clicked';
 import ToggleText from './state/ToggleText';
-import Counter from './state/Counter';
+// import Counter from './state/Counter';
 import StepCounter from './state/StepCounter';
 import CatchMeIfYouCan from './state/CatchMeIfYouCan';
 import RollCall from './state/RollCall';
@@ -19,6 +19,8 @@ import TempConverter from './forms/TempConverter';
 import Buttons from './lifting-state/Buttons';
 import Squares from './lifting-state/Squares';
 import SignUp from './lifting-state/SignUp';
+import Form from './lifting-state/Form';
+// import Max from './lifting-state/Max';
 
 const Stuff = ({ square }) => (
   <React.Fragment>
@@ -28,8 +30,17 @@ const Stuff = ({ square }) => (
     <br/>
     <Squares />
     <br/>
-    <SignUp minimumLength={ 12 } />
+    <SignUp minimumLength={ 12 }
+      fields={[
+        { label: "Insert Password", name: "insert-password", value: "" },
+        { label: "Confirm Password", name: "confirm-password", value: "" }
+      ]}
+    />
     <br/>
+    <Form
+      fields={ fields }
+    />
+    {/* <Max count={ numbers }/> */}
     <Length name="lengthchecker" label="Length Checker"/>
     <List name="lister" />
     <br/>
@@ -40,7 +51,7 @@ const Stuff = ({ square }) => (
     <br/>
     <Clicked />
     <ToggleText initial="Hello" alternate="World" />
-    <Counter initial={ 50 } max={ 100 } />
+    {/* <Counter initial={ 50 } max={ 100 } /> */}
     <StepCounter max={ 100 } step={ 5 } />
     <br/><br/>
     <CatchMeIfYouCan jump={ 100 } />
@@ -63,6 +74,9 @@ let fn = x => x * x;
 let fahrenheit = celsius => (celsius - 32) * 5/9;
 let centigrade = fahrenheit => (fahrenheit * 9/5) + 32;
 
+let fields = ["First Name", "Last Name", "Email"]
+
+// let numbers = [1, 2, 3]
 
 let names= ["Jerry", "Bob", "Tony", "Selma", "Tyrone", "Mr PING PONG"];
 

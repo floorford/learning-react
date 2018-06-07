@@ -18,12 +18,13 @@ class Squares extends Component {
   }
 
   render() {
+    const { colour } = this.props
     const { counter } = this.state
     return (
       <React.Fragment>
-        <Square colour="hotpink" selected={ counter === true } onClick={ () => this.handleClick(1)} />
+        <Square colour={ colour } selected={ counter === true } onClick={ () => this.handleClick(1)} />
         <br/>
-        <Square colour="hotpink" selected={ counter === false } onClick={ () => this.handleClick(2)} />
+        <Square colour={ colour } selected={ counter === false } onClick={ () => this.handleClick(2)} />
       </React.Fragment>
     );
   }
