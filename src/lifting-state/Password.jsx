@@ -6,12 +6,9 @@ const Password = ({ label, value, name, onChange, valid }) => (
     <React.Fragment>
       <label>{label}:</label>
       <br/>
-      <input className="form-control" onChange={ onChange } name={ name } value={ value } style={{border: `2px solid ${valid ? "red" : "black"}`}}/>
+      <input type="password" className="form-control" onChange={ onChange } name={ name } value={ value } style={{border: `2px solid ${valid ? "red" : "black"}`}}/>
       <p className="help-block">Length: { value.length } characters</p>
     </React.Fragment>
 );
 
 export default Password;
-
-// style={`border: ${ valid ? "red" : "black" }`}
-// border: `4px solid ${selected ? "black" : colour}`

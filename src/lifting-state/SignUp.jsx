@@ -28,6 +28,8 @@ class SignUp extends Component {
 
   render() {
     const { minimumLength } = this.props
+    let password = this.state.fields[0].value
+    let confirm = this.state.fields[1].value
 
     return (
       <form className="form-group">
@@ -37,14 +39,14 @@ class SignUp extends Component {
             label={ label }
             name={ name }
             value={ value }
-            valid= { !this.state.fields.every(({ value }) => value.length >= minimumLength) }
+            valid= { !this.state.fields.every(({ value }) => confirm === password && value.length >= minimumLength) }
 
             onChange={ e => this.handleChange(e, i) }
           />
         ))}
         <br/><br/>
         <button
-          disabled={ !this.state.fields.every(({ value }) => value.length >= minimumLength ) }
+          disabled={ !this.state.fields.every(({ value }) => confirm === password && value.length >= minimumLength ) }
           className="btn btn-success"
         >Submit</button>
       </form>

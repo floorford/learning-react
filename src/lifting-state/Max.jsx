@@ -9,23 +9,51 @@ class Max extends Component {
 
     this.state = {
       numbers: props.count.map(a => ({
-        label: a
+        label: a,
+        value: a,
       }))
     }
+
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(i, amount) {
+    let numbers = this.state.numbers.slice();
+    // const { max } = this.props;
+
+    // if (numbers[i].value >= max) {
+    //   numbers[i].value = max
+    // } else if (numbers[i].value <= 0) {
+    //   numbers[i].value = 0
+    // } else {
+    //   numbers[i].value += amount
+    // }
+    //
+    // numbers[i].value === max ? max :
+    numbers[i].value += amount
+
+    this.setState({
+      numbers: numbers
+    });
   }
 
   render() {
-    console.log(this.state.numbers)
+    // let numbers = this.state.numbers.slice();
+    // let highest = Math.max(numbers);
+
+    // let highlighted;
 
     return (
       <React.Fragment>
-        { this.state.numbers.map(({ label }, i) => (
+        { this.state.numbers.map(({ label, value }, i) => (
           <Counter
             key={ i }
             label={ label }
-            max={ this.props.max }
+            initial={ value }
+            // highlighted={ highlighted }
 
-            // onChange={ e => this.handleChange(e, i) }
+            onClickAdd={ () => this.handleChange(i, 1) }
+            onClickSub={ () => this.handleChange(i, -1) }
           />
         ))}
       </React.Fragment>

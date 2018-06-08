@@ -22,6 +22,8 @@ class Buttons extends Component {
       <React.Fragment>
         <Button name="First" selected={ this.state.selected === 1 } onClick={ () => this.handleClick(1)} />
         <Button name="Second" selected={ this.state.selected === 2 } onClick={ () => this.handleClick(2)} />
+        <Button name="Third" selected={ this.state.selected === 3 } onClick={ () => this.handleClick(3)} />
+        <Button name="Fourth" selected={ this.state.selected === 4 } onClick={ () => this.handleClick(4)} />
         <br/>
         <br/>
         <p>Add a colour of your choice to the end of this url: localhost:3000/squares/____ to see pretty squares!</p>
